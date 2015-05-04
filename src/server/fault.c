@@ -152,6 +152,7 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
   do_exit(SIGKILL);
 }
 
+
 /*
  * Something tried to access memory that isn't in our memory map..
  * User mode accesses just cause a SIGSEGV
@@ -182,6 +183,7 @@ __do_user_fault(struct task_struct *tsk, unsigned long addr,
   si.si_addr = (void __user *)addr;
   force_sig_info(sig, &si, tsk);
 }
+
 
 void do_bad_area(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
 {
